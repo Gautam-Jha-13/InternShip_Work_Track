@@ -10,27 +10,33 @@ import java.util.List;
 @RestController
 @RequestMapping("/api/users")
 @RequiredArgsConstructor
+@CrossOrigin(origins = "http://localhost:5174") // ✅ IMPORTANT for React
 public class UserController {
 
     private final UserService service;
 
+    // CREATE
     @PostMapping
     public User createUser(@RequestBody User user) {
         return service.createUser(user);
     }
 
+    // READ ALL
     @GetMapping
     public List<User> getAllUsers() {
         return service.getAllUsers();
     }
 
+    // UPDATE
     @PutMapping("/{id}")
     public User updateUser(
             @PathVariable String id,
-            @RequestBody User user) {
+            @RequestBody User user
+    ) {
         return service.updateUser(id, user);
     }
 
+    // DELETE
     @DeleteMapping("/{id}")
     public String deleteUser(@PathVariable String id) {
         service.deleteUser(id);
