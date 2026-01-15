@@ -10,7 +10,7 @@ import java.util.List;
 @RestController
 @RequestMapping("/api/users")
 @RequiredArgsConstructor
-@CrossOrigin(origins = "http://localhost:5174") // ✅ IMPORTANT for React
+@CrossOrigin(origins = "http://localhost:5173") // ✅ IMPORTANT for React
 public class UserController {
 
     private final UserService service;
